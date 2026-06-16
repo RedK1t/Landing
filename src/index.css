@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* Enable `dark:` utilities driven by a `.dark` class on <html> (matches the
+   Front-End app's mechanism). */
+@custom-variant dark (&:is(.dark *));
+
+/* Junicode — variable serif used for headings & large display text.
+   Subset to Latin + typographic punctuation (see public/fonts). */
+@font-face {
+  font-family: "Junicode";
+  src: url("/fonts/Junicode-Roman.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+::selection{
+  background-color: #cc323244
+
+}
+
+@theme {
+  /* Neutral tokens — theme-aware: resolve to the --neutral-* vars defined per
+     theme in :root (light) and .dark (dark) below. */
+  --color-bg: var(--neutral-bg);
+  --color-surface: var(--neutral-surface);
+  --color-fg: var(--neutral-fg);
+  --color-fg-secondary: var(--neutral-fg-secondary);
+  --color-fg-muted: var(--neutral-fg-muted);
+  --color-line: var(--neutral-line);
+
+  /* Brand reds — identical in both themes. */
+  --color-red: #ce3232;
+  --color-light-red: #ff5050;
+  --color-dark-red: #fa010c;
+
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Junicode", Georgia, "Times New Roman", serif;
+
+  --animate-fade-up: fade-up 0.7s ease-out both;
+}
+
+/* Neutral palette — LIGHT theme (default, no .dark class). Mirrors Front-End. */
+:root {
+  --neutral-bg: #ffffff;
+  --neutral-surface: #eceae6;
+  --neutral-fg: #0b0b0b;
+  --neutral-fg-secondary: #5a5343;
+  --neutral-fg-muted: #8c8472;
+  --neutral-line: rgba(11, 11, 11, 0.1);
+  color-scheme: light;
+}
+
+/* Neutral palette — DARK theme. */
+.dark {
+  --neutral-bg: #0b0b0b;
+  --neutral-surface: #1f1f1f;
+  --neutral-fg: #ffffff;
+  --neutral-fg-secondary: #d7ccbc;
+  --neutral-fg-muted: #ab9f8e;
+  --neutral-line: rgba(255, 255, 255, 0.1);
+  color-scheme: dark;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Hide the native cursor when the custom Motion cursor is active. */
+html.cursor-none,
+html.cursor-none * {
+  cursor: none !important;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: smooth;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Thin custom scrollbar that follows the theme. */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--neutral-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-surface);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-red);
+}
