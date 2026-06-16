@@ -1,10 +1,9 @@
 import { useTheme } from "../context/ThemeContext";
 
-// Per-theme demo sources. Light reuses the dark recording for now — swap to
-// demo-light.* once that's recorded.
+// Per-theme demo sources.
 const DEMO_SOURCES = {
   dark: { webm: "/demo/demo-dark.webm", mp4: "/demo/demo-dark.mp4" },
-  light: { webm: "/demo/demo-dark.webm", mp4: "/demo/demo-dark.mp4" },
+  light: { webm: "/demo/demo-light.webm", mp4: "/demo/demo-light.mp4" },
 } as const;
 
 /**
