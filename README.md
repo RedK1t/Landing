@@ -1,4 +1,17 @@
-# RedKit — Landing Page
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RedK1t/RedKit/main/docs/assets/logo-light.svg">
+    <img src="https://raw.githubusercontent.com/RedK1t/RedKit/main/docs/assets/logo-dark.svg" alt="RedKit" width="96">
+  </picture>
+</p>
+
+<h1 align="center">RedKit Landing</h1>
+
+<p align="center">Marketing landing page for RedKit.<br>
+Part of <a href="https://github.com/RedK1t/RedKit"><b>RedKit</b></a>, a modular, web-based penetration-testing framework.</p>
+
+---
+
 
 Animated, 3D, scroll-driven marketing landing page for RedKit, served at the
 apex domain `{domain}.{tld}`. The dashboard (the `Front-End` app) lives
@@ -73,3 +86,7 @@ domain over HTTPS — see `../Caddyfile` and `../host.md`.
 - The heavy three/R3F bundle is a lazy chunk; low-core/mobile devices get a
   static gradient hero instead.
 - The demo video never autoplays — poster + click-to-play only.
+
+## License
+
+[MIT](LICENSE). For authorized security testing and education only. Only scan systems you own or have written permission to test.
